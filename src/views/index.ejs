@@ -1,0 +1,21 @@
+<% tasks.forEach( obj=>{ %>
+    <div class="task-info" id="<%= obj.id%>">
+        <div class="task-element">
+
+            <% if(obj.complete){ %>
+            <!-- <span><%= obj.complete %></span> -->
+            <div id="<%= obj.id%>value" onclick="changeTask(this)" class="completeTask"></div>
+            <% } else{ %>
+            <div id="<%= obj.id%>value" onclick="changeTask(this)" class="check-task"></div>
+            <% } %>
+            <p id="<%= obj.id%>Task"><%= obj.task %></p>
+        </div>
+
+        <div class="task-options">
+            <p onclick="openEditTask(this)" class="edit"><i class="fas fa-pen"></i></p>
+            <p onclick="openDeleteTask(this)" class="delete"><i class="fas fa-trash"></i></p>
+        </div>
+
+    </div>
+
+    <% });%>
