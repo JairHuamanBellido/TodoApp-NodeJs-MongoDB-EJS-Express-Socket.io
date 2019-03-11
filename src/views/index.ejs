@@ -1,21 +1,106 @@
-<% tasks.forEach( obj=>{ %>
-    <div class="task-info" id="<%= obj.id%>">
-        <div class="task-element">
+<!DOCTYPE html>
+<html lang="en">
 
-            <% if(obj.complete){ %>
-            <!-- <span><%= obj.complete %></span> -->
-            <div id="<%= obj.id%>value" onclick="changeTask(this)" class="completeTask"></div>
-            <% } else{ %>
-            <div id="<%= obj.id%>value" onclick="changeTask(this)" class="check-task"></div>
-            <% } %>
-            <p id="<%= obj.id%>Task"><%= obj.task %></p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="/src/public/css/styles.css">
+
+</head>
+
+<body>
+    <div id="modalNewTask" class="flexMode">
+        <div class="modal-container">
+            <h1 class="flexMode">New task</h1>
+            <div class="form">
+                <label for="">Task</label>
+                <input id="taskInput" autocomplete="off" type="text" placeholder="Type new task" name="task">
+            </div>
+            <div class="btn-modals">
+                <button onclick="closeModal(this)" id="btn-closeModal">Cancel</button>
+                <button onclick="closeModal(this)" id="btn">Add Task</button>
+            </div>
         </div>
+    </div>
 
-        <div class="task-options">
-            <p onclick="openEditTask(this)" class="edit"><i class="fas fa-pen"></i></p>
-            <p onclick="openDeleteTask(this)" class="delete"><i class="fas fa-trash"></i></p>
+    <div id="modalDeleteTask" class="flexMode">
+        <div class="modal-container">
+            <h1 class="flexMode"> Confirm</h1>
+            <div class="description">
+                <div class="icon-description">
+                    <p><i class="fas fa-exclamation-triangle"></i></p>
+                </div>
+                <div class="text-description">
+                    <p>Are you sure you want to delete this task?</p>
+                    <p>You can't undo this action. </p>
+                </div>
+            </div>
+            <div class="btn-modals">
+                <button onclick="closeModal(this)" id="btn-closeModal" >No, Keep Task</button>
+                <button onclick="closeModal(this)" id="btn-deleteTask">Yes, Delete Task</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalEditTask" class="flexMode">
+
+        <div class="modal-container">
+            <h1 class="flexMode">Edit Task</h1>
+            <div  class="edit-container">
+                <label for="">Task</label>
+                <input type="text" id="editTaskField">
+            </div>
+            <div class="btn-modals">
+                <button onclick="closeModal(this)" id="btn-closeModal">Cancel, Keep Task</button>
+                <button onclick="closeModal(this)" id="btn-editTask" >Save Changes</button>
+
+            </div>
+
         </div>
 
     </div>
 
-    <% });%>
+
+
+    <div class="container">
+
+
+        <div id="all-task">
+            <div class="header-task">
+                <h1>Task</h1>
+                <p onclick="openModal()" id="newTask-btn">New task</p>
+            </div>
+            <% tasks.forEach( obj=>{ %>
+            <div class="task-info" id="<%= obj.id%>">
+                <div class="task-element">
+
+                    <% if(obj.complete){ %>
+                    <!-- <span><%= obj.complete %></span> -->
+                    <div id="<%= obj.id%>value" onclick="changeTask(this)" class="completeTask"></div>
+                    <% } else{ %>
+                    <div id="<%= obj.id%>value" onclick="changeTask(this)" class="check-task"></div>
+                    <% } %>
+                    <p id="<%= obj.id%>Task"><%= obj.task %></p>
+                </div>
+
+                <div class="task-options">
+                    <p onclick="openEditTask(this)" class="edit"><i class="fas fa-pen"></i></p>
+                    <p onclick="openDeleteTask(this)" class="delete"><i class="fas fa-trash"></i></p>
+                </div>
+
+            </div>
+
+            <% });%>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/src/public/js/main.js"></script>
+
+
+</body>
+
+</html>

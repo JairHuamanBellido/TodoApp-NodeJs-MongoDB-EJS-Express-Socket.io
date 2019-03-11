@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+/* font-family: 'Open Sans', sans-serif; */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+
+}
+.flexMode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+body{
+    background: #fff;
+    overflow-y: auto;   
+}
+.container{
+    width: 100%;
+    
+    display: flex;
+    
+    justify-content: flex-start;
+    align-items: center;
+    padding: 24px;
+    flex-direction: column;
+}
+::placeholder{
+    color: #aaa;
+}
+
+
+#modalNewTask, #modalDeleteTask,#modalEditTask{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(12,12,12,.5);
+    z-index: 1;
+    display: none;
+
+
+}
+/* #modalDeleteTask{
+    display: flex;
+} */
+
+.modal-container{
+    width: 600px;
+    height: auto;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+}
+#modalNewTask .modal-container h1{
+    background:#2097ff;
+    
+}
+.modal-container h1{
+    height: 100px;
+    text-align: left;
+    color: #f1f1f1; 
+    
+}
+
+#modalDeleteTask .modal-container h1{
+    background: #ff5a5a;
+    text-align: left;
+}
+#modalDeleteTask .description{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 24px 0;
+
+
+}
+#modalDeleteTask .description >div{
+    padding: 12px 24px;
+}
+#modalDeleteTask .description .text-description p{
+    font-weight: 600;
+    color: rgba(0,0,0,.5);
+}
+#modalDeleteTask .description .icon-description p{
+    color: #ff5a5a;
+    font-size: 48px;
+}
+
+#modalEditTask .modal-container h1, #btn-editTask{
+    background: #2097ff;
+}
+
+#modalEditTask .edit-container{
+    display: flex;
+    justify-content: flex-start;
+    padding: 48px 24px;
+    align-items: center;
+}
+
+#modalEditTask .edit-container label{
+    margin: 0 36px;
+    color: rgba(0,0,0,.67);
+}
+
+#modalEditTask .edit-container input{
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 8px 12px;
+    width: 70%;
+}
+
+.form{
+    width: 80%;
+    margin: 0 auto;
+    padding: 48px 12px 12px 12px;
+    margin-bottom: 2.76rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+.form label{
+    color: #3e79ac;
+    font-weight: 600;
+}
+#btn{
+    background: #3ea3fd;
+    
+}
+.btn-modals{
+    display: flex;
+    justify-content: center;
+    padding: 24px 0 48px 0;
+    font-size: 16px;
+
+}
+.btn-modals button{
+    color: #fff;
+    margin: 0 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: .25px;
+    padding: 12px 24px;
+    font-size: 16px;
+}
+#btn-closeModal{
+    color: #555;
+    border: 1px solid #ddd;
+    background: transparent;
+
+}
+#btn-closeModal:hover{
+    border: 1px solid #999;
+}
+
+#btn-deleteTask{
+    background: #ff5a6d;    
+    opacity: .9;
+    transition: all .2s ease-in-out;
+}
+#btn-deleteTask:hover{
+    opacity: 1;
+}
+
+.form input{
+    background: transparent;
+    padding: 12px;
+    width: 400px;
+    border: none;
+    border-radius: 5px;
+    color: #434343;
+    border: 1px solid #ccc;
+    margin-top: 12px;
+    font-size: 16px;
+    
+}
+#all-task{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 auto;
+    position: relative;
+}
+#all-task .header-task h1{
+    color: #3ea3fd;
+    
+}
+#all-task .task-info{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+#all-task .task-element, #all-task .task-options{
+    display: flex;
+}
+.task-options p{
+    margin: 0 12px;
+    cursor: pointer;
+    opacity: .67;
+}
+.task-options p:hover{
+    opacity: 1;
+}
+.task-options .edit{
+    color: rgba(0,0,0,.5);
+}
+.task-options .delete{
+    color: #ff4343;
+}
+#all-task .header-task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    border: none;
+    font-weight: bold;
+}
+#all-task .header-task p{
+    color: #3ea3fd;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    border: 1px solid #3ea3fd;
+}
+#all-task .header-task p:hover{
+    color: #fff;
+    background: #3ea3fd;
+}
+#all-task >div {
+    padding: 24px 16px;
+    color: #454545;
+    margin-top: 12px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    border-bottom: 1px solid rgba(12,12,12,.2);
+}
+#all-task .check-task{
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3ea3fd;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right:  1.5em;
+    transition: all .2s ease-in-out;
+}
+#all-task .completeTask{
+    width: 20px;
+    height: 20px;    
+    background: #3ea3fd;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right:  1.5em;
+    transition: all .2s ease-in-out;
+    position: relative;
+}
+#all-task > div:last-child{
+    border: none;
+}
+#all-task .completeTask:before{
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-30%) rotateZ(215deg) rotateX(180deg);
+    width: 3px;
+    height: 7px;
+    /* background: #fff; */
+    border: 2px solid transparent;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    
+}
